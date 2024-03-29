@@ -5,8 +5,10 @@
 # Netflix-GPt 
 - Create React app
 - configured tailwind
+- Routing in Body.js
 - Header
 - Login/SignUp Form
+- Form Validation using UseRef Hook and regex
 
 
 # Project Layout 
