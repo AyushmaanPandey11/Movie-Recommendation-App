@@ -9,7 +9,8 @@
 - Header
 - Login/SignUp Form
 - Form Validation using UseRef Hook and regex
-
+- Created and Hoist the project to firebas
+- Deployed in firebase
 
 # Project Layout 
 - Login/Signup Form
