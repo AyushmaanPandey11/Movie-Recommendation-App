@@ -2,8 +2,16 @@ import React, { useRef, useState } from 'react';
 import Header from './Header';
 import {BG_URL} from '../utils/constants';
 import {checkValidData} from '../utils/validate';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
+
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isSignIn,setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const email = useRef(null);
@@ -21,6 +29,55 @@ const Login = () => {
       setErrorMessage(message);
     } else {
       setErrorMessage("Name, email, or password field is not accessible.");
+    }
+
+    // SignIn and Sign up Options
+    if(!isSignIn)
+    {
+      // Sign Up 
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+      .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+        updateProfile(user, {
+          displayName: name.current.value , photoURL: "https://avatars.githubusercontent.com/u/123830487?v=4"
+        }).then(() => {
+          const {uid, displayName, email, photoURL} = auth.currentUser;
+        dispatch(addUser(
+          {
+            uid:uid,
+            displayName: displayName,
+            email:email,
+            photoURL: photoURL,
+          }));
+          navigate("/browse");
+        }).catch((error) => {
+          setErrorMessage(error.message);
+        });
+        console.log(user);
+        
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        setErrorMessage("Account with this email already exists, Try different one!");
+      });
+    }
+    else
+    {
+      // SignIn Logic
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        navigate("/browse");
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        setErrorMessage("No Accout Exists With given Email or password. Try Again or SignUp.");
+      });
     }
   };
   

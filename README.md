@@ -11,6 +11,11 @@
 - Form Validation using UseRef Hook and regex
 - Created and Hoist the project to firebas
 - Deployed in firebase
+- Firebase Signin/SignUp password authentication
+- Redux Store
+- user cartSlice 
+- Used updateProfile, Signout, onAuthChanged from firebase api to store and update values in redux store
+
 
 # Project Layout 
 - Login/Signup Form
