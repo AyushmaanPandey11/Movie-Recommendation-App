@@ -15,8 +15,10 @@
 - Redux Store
 - user cartSlice 
 - Used updateProfile, Signout, onAuthChanged from firebase api to store and update values in redux store
-
-
+- Bug fix - Redirecting the unaouth user to login page and authorised user to browse page 
+            - onAuthChanged is defined in the Header Component as header will be available in rendering of any component
+            and we are navigating only from here and whenever there will be change in auth this function will be called and it will navigate.
+- Bug fix - Unsubscribe the onAuthChanged callback(Good Practise).
 # Project Layout 
 - Login/Signup Form
     - Header 

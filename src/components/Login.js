@@ -1,17 +1,15 @@
 import React, { useRef, useState } from 'react';
 import Header from './Header';
-import {BG_URL} from '../utils/constants';
+import {BG_URL, USERPHOTO_URL} from '../utils/constants';
 import {checkValidData} from '../utils/validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { auth } from '../utils/firebase';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 
 
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [isSignIn,setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const email = useRef(null);
@@ -27,9 +25,8 @@ const Login = () => {
         isSignIn
       );
       setErrorMessage(message);
-    } else {
-      setErrorMessage("Name, email, or password field is not accessible.");
-    }
+      if(message) return;
+    } 
 
     // SignIn and Sign up Options
     if(!isSignIn)
@@ -40,7 +37,7 @@ const Login = () => {
         // Signed up 
         const user = userCredential.user;
         updateProfile(user, {
-          displayName: name.current.value , photoURL: "https://avatars.githubusercontent.com/u/123830487?v=4"
+          displayName: name.current.value , photoURL: USERPHOTO_URL
         }).then(() => {
           const {uid, displayName, email, photoURL} = auth.currentUser;
         dispatch(addUser(
@@ -50,11 +47,9 @@ const Login = () => {
             email:email,
             photoURL: photoURL,
           }));
-          navigate("/browse");
         }).catch((error) => {
           setErrorMessage(error.message);
         });
-        console.log(user);
         
       })
       .catch((error) => {
@@ -70,8 +65,6 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log(user);
-        navigate("/browse");
       })
       .catch((error) => {
         // const errorCode = error.code;
@@ -94,7 +87,7 @@ const Login = () => {
       <form 
         onSubmit={(e) => e.preventDefault()}
         className='w-3/12 absolute p-12 my-40 text-white bg-black mx-auto left-0 right-0 bg-opacity-75 rounded-md'  >
-          <h2 className='font-bold text-3xl py-4'>{isSignIn ? "Sign In" : "Sign Up"}</h2>
+          <h1 className='font-bold text-3xl py-4'>{isSignIn ? "Sign In" : "Sign Up"}</h1>
           { !isSignIn && <input ref={name} className='my-6 p-4 w-full bg-gray-600 ' type='text' placeholder='Full Name'></input>}
           <input 
             ref={email}
