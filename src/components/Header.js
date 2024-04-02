@@ -12,9 +12,10 @@ const Header = () => {
   const user = useSelector( store => store.user );
 
   const handleSignout = () => {
-    signOut(auth).then(() => {
-      navigate("/");
-    }).catch((error) => {
+    signOut(auth)
+    .then(() => {
+    })
+    .catch((error) => {
       navigate("/error");
     });
   };
@@ -40,7 +41,7 @@ const Header = () => {
     });
     // Unsubscribe when component unmounts
     return () => unsubscribe();
-  }, [dispatch,navigate]);
+  }, [navigate,dispatch]);
 
   return (
     <div className='absolute w-screen px-8 py-2  bg-gradient-to-b from-black  z-10 flex justify-between '>
