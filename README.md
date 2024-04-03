@@ -19,6 +19,16 @@
             - onAuthChanged is defined in the Header Component as header will be available in rendering of any component
             and we are navigating only from here and whenever there will be change in auth this function will be called and it will navigate.
 - Bug fix - Unsubscribe the onAuthChanged callback(Good Practise).
+- Used tmdb api for NowPlaying Movie and used it in the useNowPlayingMovies for fetching.
+- Fetching VideoTrialer in MainContainer. Video Title & Video Background  
+
+
+
+
+
+
+
+
 # Project Layout 
 - Login/Signup Form
     - Header 
@@ -26,11 +36,11 @@
     -Redirecting to browse Page
 - Browse (after Authentication)
     - Header
-    - Main Movie
+    - Main Movie ( Main Container )
         - Trailer
         - Movie Name & Desc
-    - Movie Suggestions
-    - Movie List*n || Movie Categories
+    - Movie Suggestions List*n ( Vertically ) (Secondary Container)
+        - Movies Cards*n (horizontally)
 - Netflix-gpt
     - Search-Bar
     - Movie Suggestion

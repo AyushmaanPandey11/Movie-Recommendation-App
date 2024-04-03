@@ -47,9 +47,11 @@ const Header = () => {
     <div className='absolute w-screen px-8 py-2  bg-gradient-to-b from-black  z-10 flex justify-between '>
       <img className='w-44' 
       src={LOGO_URL} alt='LOGO_IMG' />
-      { user && <div className='flex p-2 ' > 
-        <img alt='userIcon' src = {user?.photoURL} className='w-12 h-12' />
-        <button  onClick={handleSignout} className='ml-2 font-bold text-white' >Sign Out</button>
+      { user && 
+      <div className='flex p-2 px-7' > 
+        <h2 className='mt-10 mx-7 font-bold text-white'>{user?.displayName}</h2>
+        <img alt='userIcon' src = {user?.photoURL} className='w-12 h-12 mt-7' />
+        <button  onClick={handleSignout} className='ml-6  font-bold text-white underline' >(Sign Out)</button>
       </div>}
     </div>
   )
