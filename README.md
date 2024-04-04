@@ -21,8 +21,8 @@
 - Bug fix - Unsubscribe the onAuthChanged callback(Good Practise).
 - Used tmdb api for NowPlaying Movie and used it in the useNowPlayingMovies for fetching.
 - Fetching VideoTrialer in MainContainer. Video Title & Video Background  
-- Storing data to redux of nowplaing movies and videoTrailer
-- Customize hooks for nowPlaying Movies
+- Storing data to redux of nowplaing movies, videoTrailer, TopRated, Upcoming and Popular
+- Customize hooks for nowPlaying Movies, TopRated, Upcoming and Popular
 - Embedded the Youtube video with autoplay and mute 
 
 
