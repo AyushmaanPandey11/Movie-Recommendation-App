@@ -10,4 +10,4 @@ const VideoCard = ({posterPath}) => {
   )
 }
 
-export default VideoCard
+export default VideoCard;
