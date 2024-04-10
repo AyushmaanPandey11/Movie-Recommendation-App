@@ -24,7 +24,11 @@
 - Storing data to redux of nowplaing movies, videoTrailer, TopRated, Upcoming and Popular
 - Customize hooks for nowPlaying Movies, TopRated, Upcoming and Popular
 - Embedded the Youtube video with autoplay and mute 
-
+- GPT page with 
+    - Gpt search Bar
+    - Gpt content
+- Added a Multi-Language Feature in our App
+- Integrate Gpt Apis( get open ai key )
 
 
 

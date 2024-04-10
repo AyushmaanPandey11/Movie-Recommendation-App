@@ -60,13 +60,14 @@ const Header = () => {
       src={LOGO_URL} alt='LOGO_IMG' />
       { user && (
           <div className='flex p-2 px-7' > 
-            <select className='p-2 mx-4 mt-7 h-12 bg-gray-800 text-white' onChange={handleLangChange}  >
+            { showGptSearch && <select className='p-2 mx-4 mt-7 h-12 bg-gray-800 text-white' onChange={handleLangChange}  >
               {
                 SUPPORTED_LANG.map( 
                   lang => <option  key={lang.identifier} value={lang.identifier}>{lang.name}
                           </option>  )
               }
-            </select>
+              </select>
+            }
             <button 
               className='py-2 mx-2 my-7 bg-purple-800 text-white rounded-lg w-28 '
               onClick={handleToggleGpt} >
