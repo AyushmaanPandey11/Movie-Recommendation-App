@@ -39,8 +39,8 @@ const GptSearchBar = () => {
     }
 
   return (
-    <div className='pt-[10%] flex justify-center ' >
-      <form className=' w-1/2 bg-black grid grid-cols-12 '  onSubmit={(e)=>e.preventDefault()}>
+    <div className='pt-[10%] flex justify-center flex-col' >
+      <form className=' w-1/2 bg-black grid grid-cols-12  ml-[25%]'  onSubmit={(e)=>e.preventDefault()}>
           <input  
             ref={searchText}
             type='text' 
@@ -51,6 +51,9 @@ const GptSearchBar = () => {
           {lang[langKey].search}
           </button>
       </form>
+      <div>
+        <p className= 'm-2 p-4 mx-[25%] bg-black text-center text-white font-bold'> NOTE: Add your openai_key from openai platforms, it may not work because of use limit </p>
+      </div>
     </div>
   )
 }
