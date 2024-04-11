@@ -12,11 +12,7 @@ const userSlice = createSlice(
             },
             removeUser : (state,action) => {
                 return null;
-            },   
-            addOpenAiKey: (state,action) => {
-                state.openAiKey = action.payload;
             }
-
         }
     }
 );

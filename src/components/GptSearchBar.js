@@ -5,14 +5,10 @@ import openai from "../utils/openai";
 import { API_OPTIONS } from '../utils/constants';
 import {useDispatch} from "react-redux";
 import { addGptMovieResult } from "../utils/gptSlice";
-import { addOpenAiKey } from "../utils/userSlice"; 
 const GptSearchBar = () => {
     const langKey = useSelector((store)=> store.config.lang);
     const searchText = useRef(null);
     const dispatch = useDispatch();
-    const apikey = useRef(null);
-    dispatch(addOpenAiKey(apikey));
-
     const searchMovieTMDB = async (movie) => {
       const data = await fetch(
         "https://api.themoviedb.org/3/search/movie?query=" +
@@ -45,7 +41,6 @@ const GptSearchBar = () => {
   return (
     <div className='pt-[10%] flex justify-center ' >
       <form className=' w-1/2 bg-black grid grid-cols-12 '  onSubmit={(e)=>e.preventDefault()}>
-        <div>
           <input  
             ref={searchText}
             type='text' 
@@ -55,15 +50,6 @@ const GptSearchBar = () => {
           <button  className=' col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg' onClick={handleGPTSearch} >
           {lang[langKey].search}
           </button>
-        </div>
-        <div>
-        <input  
-            ref={apikey}
-            type='text' 
-            className='p-4 m-4 '        
-            placeholder={lang[langKey].apiKey}       
-          />
-        </div>
       </form>
     </div>
   )
