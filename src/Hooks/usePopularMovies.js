@@ -13,7 +13,7 @@ const usePopularMovies = async () => {
     },[dispatch]);
   
     useEffect( () => {
-      PopularMovies && getPopularMovies();
+      !PopularMovies && getPopularMovies();
     }
     ,[dispatch,getPopularMovies]);
 }

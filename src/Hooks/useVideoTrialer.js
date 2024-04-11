@@ -19,7 +19,7 @@ const useVideoTrialer = ( movie_id ) => {
     }, [dispatch, movie_id]);
 
     useEffect(() => {
-        videoTrialer && getMovieVideo();
+        !videoTrialer && getMovieVideo();
     }, [getMovieVideo, dispatch]);
 };
 

@@ -13,7 +13,7 @@ const useUpcomingMovies = async () => {
     },[dispatch]);
   
     useEffect( () => {
-      UpcomingMovies &&  getUpcomingMovies();
+      !UpcomingMovies &&  getUpcomingMovies();
     }
     ,[dispatch,getUpcomingMovies]);
 }

@@ -14,7 +14,7 @@ const useTopRatedMovies = async () => {
     },[dispatch]);
   
     useEffect( () => {
-      TopRatedMovies && getTopRatedMovies();
+      !TopRatedMovies && getTopRatedMovies();
     }
     ,[dispatch,getTopRatedMovies]);
 }

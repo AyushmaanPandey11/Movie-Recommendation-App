@@ -13,7 +13,7 @@ const useNowPlayingMovies = async () => {
     },[dispatch]);
   
     useEffect( () => {
-      NowPlayingMovies && getNowPlayingMovies();
+      !NowPlayingMovies && getNowPlayingMovies();
     }
     ,[dispatch,getNowPlayingMovies]);
 }
