@@ -32,7 +32,7 @@
 - Received result from openai api and used the result to fetch movie details from tmdb search movie api.
 - Store the data of movieName and movieResult to redux store.
 - NOTE : Openai takes money to use after a time to use their api so error can come in search your movie 
-
+- Memoization of fetched data. ( Reduced redundant api calls from useEffect Hook ).
 
 
 
