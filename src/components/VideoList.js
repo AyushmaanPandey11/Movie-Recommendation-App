@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoCard from './VideoCard';
+import { Link } from 'react-router-dom';
 
 const VideoList = ({ title, movies }) => {
   return (
@@ -9,7 +10,7 @@ const VideoList = ({ title, movies }) => {
         <div className='flex   overflow-x-hidden  '>
           <div className='flex space-x-4'>
             {movies?.map((movie) => (
-              <VideoCard key={movie.id} posterPath={movie?.poster_path} />
+              <Link key={movie?.id} to={"/movie/"+movie?.id }><VideoCard posterPath={movie?.poster_path} /></Link>
             ))}
           </div>
         </div>

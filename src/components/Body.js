@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './Login';
-import Browse from './Browse';
 import Error from "./Error";
+import MovieDetails from './MovieDetails';
+import { lazy } from 'react';
+const Browse = lazy( () => import("./Browse") );
+
+
 const Body = () => {
   const appRouter = createBrowserRouter([
     {
@@ -12,11 +16,18 @@ const Body = () => {
     },
     {
       path:"/browse",
-      element:<Browse />
+      element:<Suspense fallback={<Error/>} ><Browse /></Suspense>,
+      
     },
     {
       path:"/error",
-      element:<Error />
+      element:<Error />,
+      errorElement: <Error />
+    },
+    {
+      path:"/movie/:movieId",
+      element: <MovieDetails />,
+      errorElement: <Error />
     }
   ]);
 
