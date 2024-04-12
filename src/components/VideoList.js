@@ -4,15 +4,13 @@ import { Link } from 'react-router-dom';
 
 const VideoList = ({ title, movies }) => {
   return (
-    <div className='p-6 bg-gradient-to-b from-transparent '>
+    <div className='p-6 bg-gradient-to-b from-transparent overflow-x-scroll'>
       <div className=''>
         <h1 className='text-bold text-white text-3xl py-4'>{title}</h1>
-        <div className='flex   overflow-x-hidden  '>
-          <div className='flex space-x-4'>
-            {movies?.map((movie) => (
-              <Link key={movie?.id} to={"/movie/"+movie?.id }><VideoCard posterPath={movie?.poster_path} /></Link>
-            ))}
-          </div>
+        <div className='flex flex-nowrap space-x-4 '>
+          {movies?.map((movie) => (
+            <Link key={movie?.id} to={"/movie/"+movie?.id }><VideoCard posterPath={movie?.poster_path} /></Link>
+          ))}
         </div>
       </div>
     </div>
