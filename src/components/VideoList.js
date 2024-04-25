@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const VideoList = ({ title, movies }) => {
   return (
-    <div className='p-6 bg-gradient-to-b from-transparent overflow-x-scroll'>
+    <div className='p-6 bg-gradient-to-b from-transparent overflow-x-auto'>
       <div className=''>
         <h1 className='text-bold text-white text-3xl py-4'>{title}</h1>
         <div className='flex flex-nowrap space-x-4 '>
