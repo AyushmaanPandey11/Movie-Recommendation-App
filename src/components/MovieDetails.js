@@ -7,10 +7,10 @@ import { useSelector } from 'react-redux';
 import Error from "./Error";
 const MovieDetails = () => {
   const { movieId } = useParams(); 
-  const trialerVideo = useSelector( (store)=>store.SearchMovie.movieTrailer );
-  const SearchMovieDetails= useSelector((store)=>store.SearchMovie.SearchMovieDetails);
   useSearchMovie(movieId);
   useSearchMovieTrialer(movieId);
+  const trialerVideo = useSelector( (store)=>store.SearchMovie?.movieTrailer );
+  const SearchMovieDetails= useSelector((store)=>store.SearchMovie?.SearchMovieDetails);
   const navigate = useNavigate();
   const HandleHomeButton = () => {
     navigate("/browse");
