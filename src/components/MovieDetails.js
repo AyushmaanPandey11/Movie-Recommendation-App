@@ -15,7 +15,7 @@ const MovieDetails = () => {
   const HandleHomeButton = () => {
     navigate("/browse");
   };
-  return ( !trialerVideo && !!SearchMovieDetails ) ? <Error /> : (
+  return ( !trialerVideo && !SearchMovieDetails ) ? <Error /> : (
     <div>
       <div className='fixed -z-10 '>
         <img className='h-screen w-screen object-cover' src={BG_URL} alt='logo' />
