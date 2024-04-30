@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 const MainContainer = () => {
     const movies = useSelector(store => store.movies?.nowPlayingMovies);
     if(!movies) return ;
-    const MainMovie = movies[1];
+    const MainMovie = movies[0];
     const { original_title, overview, id } = MainMovie;
 
   return (

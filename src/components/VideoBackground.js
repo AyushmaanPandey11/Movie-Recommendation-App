@@ -9,7 +9,7 @@ const VideoBackground = ({movie_id}) => {
       return <div>Loading...</div>;
     }
     return (
-        <div className="w-screen ">
+        <div className="w-screen">
             <div className="-mt-30" >
                 <iframe 
                     className="w-full h-full aspect-video rounded-lg  "

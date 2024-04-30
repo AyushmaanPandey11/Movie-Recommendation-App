@@ -4,7 +4,7 @@ const SearchMovieSlice = createSlice(
         name : "SearchMovie",
         initialState: {
             movieTrailer: null,
-            SearchMovieDetails:null,
+            SearchMovieDetails:[],
         },
         reducers : {
             addMovieTrialer : (state,action) => {
